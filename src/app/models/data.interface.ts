@@ -1,9 +1,10 @@
+import { Character } from "./character.interface";
 import { Result } from "./result.interface";
 
 export interface Data {
     offset: number;
     limit: number;
-    total: number;
+    total: string;
     count: number;
-    results: Result;
+    results: Character[];
 }

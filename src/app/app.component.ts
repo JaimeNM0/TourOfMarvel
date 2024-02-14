@@ -14,8 +14,8 @@ import { HeaderComponent } from './header/header.component';
   providers: [CharactersService]
 })
 export class AppComponent {
-  title = 'tourOfMarvel';
-  characters: Character[] = [];
+  public title = 'tourOfMarvel';
+  /*public characters: Character[] = [];
 
   constructor(private heroService: CharactersService) { }
 
@@ -27,5 +27,5 @@ export class AppComponent {
     this.heroService.getCharacters()
       .subscribe(characters => this.characters = characters);
     console.log(this.characters);
-  }
+  }*/
 }

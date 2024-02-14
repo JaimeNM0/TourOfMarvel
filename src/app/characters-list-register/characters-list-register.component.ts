@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Character } from '../models/character.interface';
 
 @Component({
   selector: 'app-characters-list-register',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './characters-list-register.component.css'
 })
 export class CharactersListRegisterComponent {
+  @Input() register!: Character;
 
 }

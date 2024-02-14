@@ -1,5 +1,7 @@
+import { Thumbnail } from "./thumbnail.interface";
+
 export interface Character {
     id: number;
     name: string;
-    image: string;
+    thumbnail: Thumbnail;
 }

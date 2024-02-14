@@ -9,5 +9,5 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  title: string = 'Tour of Marvel';
+  public title: string = 'Tour of Marvel';
 }
