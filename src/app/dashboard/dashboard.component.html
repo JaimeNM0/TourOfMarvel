@@ -1,8 +1,7 @@
 <app-search></app-search>
 <h2>Top Characters</h2>
 <div>
-    <div *ngFor="let character of characters; let i = index">
+    <button *ngFor="let character of characters"  routerLink="/characters/{{character.id}}">
         <app-dashboard-register [register]="character"></app-dashboard-register>
-    </div>
+    </button>
 </div>
-<p>dashboard works!</p>

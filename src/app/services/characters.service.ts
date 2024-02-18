@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, map, of, switchMap } from 'rxjs';
 import { Character } from '../models/character.interface';
 import { HttpClient } from '@angular/common/http';
-import { UrlMarvel } from '../models/url-marvel.interface';
-import { Result } from '../models/result.interface';
+import { UrlMarvel, UrlMarvelDetails } from '../models/url-marvel.interface';
+import { CharacterDetails } from '../models/character-details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class CharactersService {
     );
 
     let observableMarvel: Observable<UrlMarvel> = this.http.get<UrlMarvel>(this.urlCharacters);
-    
+
     observableMarvel.subscribe((characters) => {
       this.characters = characters;
       console.log(this.characters);
@@ -30,10 +30,11 @@ export class CharactersService {
     );
   }
 
-  /*public getOneCharacter(id: string): Observable<Character[]> {
-    let urlOne: string = this.urlOneCharacter.replace(":id", id);
-    return this.http.get<Character[]>(urlOne);
-  }*/
+  public getOneCharacter(id: string): Observable<CharacterDetails[]> {
+    return this.http.get<UrlMarvelDetails>(this.urlOneCharacter.replace(":id", id)).pipe(
+      map((response) => response.data.results)
+    );
+  }
 
   public getTotalRecords(): Observable<string> {
     return this.http.get<UrlMarvel>(this.urlCharacters).pipe(

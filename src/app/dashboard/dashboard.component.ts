@@ -4,13 +4,13 @@ import { DashboardRegisterComponent } from '../dashboard-register/dashboard-regi
 import { CharactersService } from '../services/characters.service';
 import { Character } from '../models/character.interface';
 import { CommonModule } from '@angular/common';
-import { Result } from '../models/result.interface';
 import { Observable, Subscribable, Subscription, map } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, SearchComponent, DashboardRegisterComponent],
+  imports: [CommonModule, RouterModule, SearchComponent, DashboardRegisterComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   providers: [CharactersService],

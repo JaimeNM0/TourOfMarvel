@@ -1,1 +1,17 @@
-<p>characters-details works!</p>
+<div *ngIf="character; else noCharacter">
+    <h2>{{ character[0].name | uppercase }} Details</h2>
+    <p>Id: {{ character[0].id }}</p>
+    <p>Nombre del personaje: {{ character[0].name }}</p>
+    <p *ngIf="character[0].description">Descripción del personaje: {{ character[0].description }}</p>
+    <p>Número de comic donde aparece: {{ character[0].comics.available }} números</p>
+    <p>Número de historias donde aparece: {{ character[0].stories.available }} historias</p>
+    <p>Número de series donde aparece: {{ character[0].series.available }} series</p>
+    <p>Número de eventos donde aparece: {{ character[0].events.available }} eventos</p>
+    <img class="" [src]="imagen" width="500px" height="500px">
+</div>
+<ng-template #noCharacter>
+    <p>No existe ese personaje.</p>
+</ng-template>
+<div>
+    <button type="button" (click)="goBack()">Regresar</button>
+</div>
