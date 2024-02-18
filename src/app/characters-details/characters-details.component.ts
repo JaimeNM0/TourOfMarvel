@@ -20,11 +20,11 @@ export class CharactersDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute, private charactersService: CharactersService, private location: Location) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getCharacters();
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.susbscribeCharacterOne.unsubscribe();
   }
 
@@ -33,7 +33,6 @@ export class CharactersDetailsComponent implements OnInit, OnDestroy {
     this.susbscribeCharacterOne = this.charactersService.getOneCharacter(id)
       .subscribe(response => {
         this.character = response;
-        console.log(this.character);
         this.imagen = this.character[0].thumbnail.path + '.' + this.character[0].thumbnail.extension;
       });
   }

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Character } from '../models/character.interface';
-import { Thumbnail } from '../models/thumbnail.interface';
 
 @Component({
   selector: 'app-dashboard-register',
@@ -13,7 +12,7 @@ export class DashboardRegisterComponent implements OnInit {
   @Input() register!: Character;
   public imagen!: string;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.imagen = this.register.thumbnail.path + '.' + this.register.thumbnail.extension;
   }
 }

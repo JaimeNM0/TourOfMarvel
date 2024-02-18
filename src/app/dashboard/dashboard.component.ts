@@ -21,20 +21,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   constructor(private charactersService: CharactersService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getCharacters();
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.susbscribeCharactersService.unsubscribe();
   }
 
-  getCharacters(): void {
+  public getCharacters(): void {
     const numRandom: string = "" + (Math.floor(Math.random() * 1564) + 1);
     this.susbscribeCharactersService = this.charactersService.getCharacters(numRandom)
       .subscribe(response => {
         this.characters = response;
-        console.log(this.characters);
       });
   }
 }

@@ -10,5 +10,4 @@ import { Character } from '../models/character.interface';
 })
 export class CharactersListRegisterComponent {
   @Input() register!: Character;
-
 }

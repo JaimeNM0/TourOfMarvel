@@ -18,7 +18,6 @@ import { RouterModule } from '@angular/router';
 })
 export class CharactersListComponent implements OnInit, OnDestroy {
   public miniPage: string = '1';
-  public page: string = '1';
   public maxPage!: string;
   public totalRecords!: string;
   public limit: number = 20;
@@ -31,7 +30,7 @@ export class CharactersListComponent implements OnInit, OnDestroy {
 
   constructor(private charactersService: CharactersService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.control.disable();
     setTimeout(() => {
       this.control.setValue(1);
@@ -40,15 +39,11 @@ export class CharactersListComponent implements OnInit, OnDestroy {
     this.getCharacters();
   }
 
-  ngOnDestroy(): void {
-    //this.susbscribeCharactersService.unsubscribe();
+  public ngOnDestroy(): void {
     this.susbscribeTotalRecords.unsubscribe();
   }
 
   public getCharacters(): void {
-    /*if (this.susbscribeCharactersService) {
-      this.susbscribeCharactersService.unsubscribe();
-    }*/
     this.charactersObservable$ = this.control.valueChanges.pipe(
       debounceTime(700),
       distinctUntilChanged(),
@@ -56,11 +51,6 @@ export class CharactersListComponent implements OnInit, OnDestroy {
         return this.charactersService.getCharacters('' + ((Number(value) - 1) * 20))
       }),
     );
-    /*this.susbscribeCharactersService = this.charactersService.getCharacters('' + ((Number(this.page) - 1) * 20))
-      .subscribe(response => {
-        this.characters = response;
-        console.log(this.characters);
-      });*/
   }
 
   public getTotalRecords(): void {
@@ -71,42 +61,27 @@ export class CharactersListComponent implements OnInit, OnDestroy {
       });
   }
 
-  /*public pagerControl(): void {
-    this.control.valueChanges.pipe(
-      debounceTime(600),
-      distinctUntilChanged(),
-    );
-  }*/
-
   public pagerPrinciple(): void {
     if (this.control.value != this.miniPage || this.control.value > this.miniPage) {
       this.control.setValue('' + this.miniPage);
-      //this.page = this.miniPage;
-      //this.control.value = this.page;
-      //this.getCharacters();
     }
   }
 
   public pagerBack(): void {
     if (this.control.value != this.miniPage || this.control.value > this.miniPage) {
       this.control.setValue('' + (Number(this.control.value) - 1));
-      //this.page = '' + (Number(this.page) - 1);
-      //this.getCharacters();
     }
   }
 
   public pagerForward(): void {
     if (this.control.value != this.maxPage || this.control.value < this.maxPage) {
       this.control.setValue('' + (Number(this.control.value) + 1));
-      //this.getCharacters();
     }
   }
 
   public pagerEnd(): void {
     if (this.control.value != this.maxPage || this.control.value < this.maxPage) {
       this.control.setValue('' + this.maxPage);
-      //this.page = this.maxPage;
-      //this.getCharacters();
     }
   }
 }
