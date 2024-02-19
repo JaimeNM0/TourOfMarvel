@@ -1,21 +1,25 @@
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
 import { Observable, debounceTime, distinctUntilChanged, map, of, switchMap } from 'rxjs';
 import { CharactersService } from '../services/characters.service';
 import { Character } from '../models/character.interface';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [NgIf, NgFor, FormsModule, RouterOutlet, RouterModule, ReactiveFormsModule, AsyncPipe],
+  imports: [NgFor, FormsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, RouterOutlet, RouterModule, ReactiveFormsModule, AsyncPipe],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
 })
 export class SearchComponent implements OnInit {
+  @ViewChild('input') input!: ElementRef<HTMLInputElement>;
   public charactersSearch$!: Observable<Character[]>;
-  public control: FormControl = new FormControl();
+  public control: FormControl = new FormControl('');
 
   constructor(private route: ActivatedRoute, private charactersService: CharactersService) { }
 
@@ -34,5 +38,10 @@ export class SearchComponent implements OnInit {
         return this.charactersService.getCharactersSearch(value)
       }),
     );
+  }
+
+  public filter(): void {
+    const filterValue: string = this.input.nativeElement.value.toLowerCase();
+    this.control.setValue(filterValue);
   }
 }
