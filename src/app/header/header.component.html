@@ -1,5 +1,34 @@
-<h1>{{ title }}</h1>
+<!--<h1>{{ title }}</h1>
 <nav>
-    <button routerLink="/dashboard">Dashboard</button>
-    <button routerLink="/characters">Characters</button>
-</nav>
+    <button mat-stroked-button routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button>
+    <button mat-stroked-button routerLink="/characters"><mat-icon>list_alt</mat-icon>Characters</button>
+</nav>-->
+<div id="header">
+    <mat-toolbar-row id="dentroHeader">
+        <div id="titulo">
+            <span>{{ title }}</span>
+        </div>
+        <div>
+            <button mat-icon-button routerLink="/dashboard">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/dashboard">
+                    <mat-icon>dashboard</mat-icon>
+                    <span>Dashboard</span>
+                </button>
+                <button mat-menu-item routerLink="/characters">
+                    <mat-icon>list_alt</mat-icon>
+                    <span>Characters</span>
+                </button>
+            </mat-menu>
+        </div>
+    </mat-toolbar-row>
+</div>
+<div id="nav">
+    <button id="dashboard" mat-stroked-button routerLink="/dashboard"><mat-icon>dashboard</mat-icon>Dashboard</button>
+    <button id="characters" mat-stroked-button routerLink="/characters"><mat-icon>list_alt</mat-icon>Characters</button>
+</div>

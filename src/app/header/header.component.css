@@ -1,0 +1,42 @@
+#header {
+    width: auto;
+    height: 80px;
+    background-color: blue;
+}
+
+#dentroHeader {
+    margin: 0px 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#titulo {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+#nav {
+    width: auto;
+    height: 40px;
+}
+
+#dashboard {
+    width: 50%;
+    height: 100%;
+}
+
+#characters {
+    width: 50%;
+    height: 100%;
+}
