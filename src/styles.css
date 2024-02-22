@@ -1,4 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    /*background: black;*/
+}
+
+#nav {
+    @apply flex flex-col md:flex-row w-[100%] sm:h-20 md:h-10 bg-gray-900;
+}
+
+.navButton {
+    @apply sm:w-[100%] sm:h-[50%] md:w-[50%] md:h-[100%];
+}
+
+.textNavButton {
+    @apply text-lg;
+}
+
+#main {
+    @apply p-4 bg-gray-950;
+}
+
+#main>div {
+    @apply mx-[4%];
+}
+
+#search {
+    @apply w-[100%] md:w-3/5 lg:w-3/6;
+}
+
+.divSubTitle {
+    @apply mb-4 text-[#ee171f] font-medium;
+}
+
+.textSubTitle {
+    @apply text-3xl;
+}
+
+#dashboardCharacters {
+    @apply grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-y-[30px] gap-x-[2%];
+}
+
+.buttonDashboard {
+    @apply p-4 bg-[#F8474C] rounded-2xl border-[3px] border-[#4eb1ad];
+}
+
+.dashboardRegister {
+    @apply flex flex-col items-center gap-5;
+}
+
+.textDashboardRegister {
+    @apply text-xl;
+}

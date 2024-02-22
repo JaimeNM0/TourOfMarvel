@@ -1,7 +1,7 @@
 #header {
     width: auto;
     height: 80px;
-    background-color: blue;
+    background-color: #ee171f;
 }
 
 #dentroHeader {
@@ -18,25 +18,10 @@
     font-size: 36px;
 }
 
-.example-icon {
-    padding: 0 14px;
+.navButton {
+    background: #4eb1ad;
 }
 
 .example-spacer {
     flex: 1 1 auto;
-}
-
-#nav {
-    width: auto;
-    height: 40px;
-}
-
-#dashboard {
-    width: 50%;
-    height: 100%;
-}
-
-#characters {
-    width: 50%;
-    height: 100%;
 }

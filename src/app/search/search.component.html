@@ -4,22 +4,23 @@
         <a routerLink="/characters/{{character.id}}">{{ character.name }}</a>
     </li>
 </ul>-->
-
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Characters</mat-label>
-    <input id="input" #input
-           type="text"
-           placeholder="Write your character here to search"
-           matInput
-           [formControl]="control"
-           [matAutocomplete]="auto"
-           (input)="filter()"
-           (focus)="filter()">
-    <mat-autocomplete requireSelection #auto="matAutocomplete">
-      @for (option of (charactersSearch$ | async); track option) {
-        <mat-option [value]="option.name" routerLink="/characters/{{option.id}}">{{ option.name }}</mat-option>
-      }
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
+<div class="flex justify-center">
+  <form id="search">
+    <mat-form-field class="example-full-width">
+      <mat-label>Characters</mat-label>
+      <input id="input" #input
+             type="text"
+             placeholder="Write your character here to search"
+             matInput
+             [formControl]="control"
+             [matAutocomplete]="auto"
+             (input)="filter()"
+             (focus)="filter()">
+      <mat-autocomplete requireSelection #auto="matAutocomplete">
+        @for (option of (charactersSearch$ | async); track option) {
+          <mat-option [value]="option.name" routerLink="/characters/{{option.id}}">{{ option.name }}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
