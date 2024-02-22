@@ -27,7 +27,7 @@ body {
 }
 
 #main {
-    @apply p-4 bg-gray-950;
+    @apply w-[100%] p-4 bg-gray-950;
 }
 
 #main>div {
@@ -51,7 +51,7 @@ body {
 }
 
 .buttonDashboard {
-    @apply p-4 bg-[#F8474C] rounded-2xl border-[3px] border-[#4eb1ad];
+    @apply p-4 bg-[#f8474c] rounded-2xl border-[3px] border-[#4eb1ad];
 }
 
 .dashboardRegister {
@@ -62,7 +62,37 @@ body {
     @apply text-xl;
 }
 
+.buttonCharacters {
+    @apply w-[100%] md:w-4/5 lg:w-3/5;
+}
 
+.buttonCharacters>span {
+    @apply w-[100%];
+}
+
+.paginador {
+    @apply flex md:flex-row flex-col justify-center items-center mt-4 gap-[10px] md:gap-[5%] lg:gap-[10%] text-white;
+}
+
+.paginador>div {
+    @apply flex flex-row gap-[30px];
+}
+
+.registros {
+    @apply flex gap-[5px] text-base;
+}
+
+.paginador>.botones {
+    @apply flex flex-col sm:flex-row gap-[10px];
+}
+
+.paginador>.botones>div {
+    @apply flex gap-[5px];
+}
+
+.paginaPaginator {
+    @apply bg-white text-xl text-center text-black w-[134px] h-9 rounded-md;
+}
 
 .textDetails {
     @apply text-base whitespace-normal text-white;

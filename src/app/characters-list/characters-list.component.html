@@ -1,26 +1,44 @@
-<h2>Characters</h2>
-<div>
-    <button *ngFor="let character of (charactersObservable$ | async)" routerLink="/characters/{{character.id}}">
-        <app-characters-list-register [register]="character"></app-characters-list-register>
+<div class="divSubTitle">
+    <span class="textSubTitle">Characters</span>
+</div>
+<div class="flex flex-col items-center gap-3 overflow-y-auto h-[320px] sm:h-[400px] md:h-[475px]">
+    <button class="buttonCharacters" mat-stroked-button *ngFor="let character of (charactersObservable$ | async)"
+        routerLink="/characters/{{character.id}}">
+        <app-characters-list-register [register]="character" class="full-width"></app-characters-list-register>
     </button>
 </div>
-<br>
 <div class="paginador">
     <div class="botones">
-        <input id="principio" type="button" value="<<" (click)="pagerPrinciple()">
-        <input id="atras" type="button" value="<" (click)="pagerBack()">
-        <input id="pagina" type="number" value="2" [formControl]="control">
-        <input id="adelante" type="button" value=">" (click)="pagerForward()">
-        <input id="final" type="button" value=">>" (click)="pagerEnd()">
+        <div>
+            <button class="buttonPaginator" mat-stroked-button (click)="pagerPrinciple()">
+                <span><<</span>
+            </button>
+            <button class="buttonPaginator" mat-stroked-button (click)="pagerBack()">
+                <span><</span>
+            </button>
+        </div>
+        <div>
+            <input class="paginaPaginator" type="number" value="2" [formControl]="control">
+        </div>
+        <div>
+            <button class="buttonPaginator" mat-stroked-button (click)="pagerForward()">
+                <span>></span>
+            </button>
+            <button class="buttonPaginator" mat-stroked-button (click)="pagerEnd()">
+                <span>>></span>
+            </button>
+        </div>
     </div>
-    <div class="pagina">
-        <span>Páginas:</span>
-        <span id="pagina_actual">{{ control.value }}</span>
-        <span>/</span>
-        <span id="ultima_pagina">{{ maxPage }}</span>
-    </div>
-    <div class="registros">
-        <span>Registros totales:</span>
-        <span id="total_registros">{{ totalRecords }}</span>
+    <div>
+        <div class="registros">
+            <span>Páginas:</span>
+            <span id="pagina_actual">{{ control.value }}</span>
+            <span>/</span>
+            <span id="ultima_pagina">{{ maxPage }}</span>
+        </div>
+        <div class="registros">
+            <span>Registros totales:</span>
+            <span id="total_registros">{{ totalRecords }}</span>
+        </div>
     </div>
 </div>

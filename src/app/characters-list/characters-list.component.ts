@@ -7,11 +7,12 @@ import { SearchComponent } from '../search/search.component';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-characters-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, AsyncPipe, RouterModule, SearchComponent, CharactersListRegisterComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, AsyncPipe, RouterModule, MatButtonModule, SearchComponent, CharactersListRegisterComponent],
   templateUrl: './characters-list.component.html',
   styleUrl: './characters-list.component.css',
   providers: [CharactersService],

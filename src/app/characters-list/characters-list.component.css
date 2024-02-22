@@ -1,0 +1,10 @@
+.buttonPaginator {
+    background: #4eb1ad;
+    border: 2px solid #f8474c;
+    font-size: 20px;
+}
+
+.buttonCharacters {
+    background: #f8474c;
+    border: 2px solid #4eb1ad;
+}
