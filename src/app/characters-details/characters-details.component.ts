@@ -4,11 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { CharactersService } from '../services/characters.service';
 import { Subscription } from 'rxjs';
 import { CharacterDetails } from '../models/character-details.interface';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-characters-details',
   standalone: true,
-  imports: [NgIf, UpperCasePipe],
+  imports: [NgIf, UpperCasePipe, MatListModule, MatButtonModule],
   templateUrl: './characters-details.component.html',
   styleUrl: './characters-details.component.css',
   providers: [CharactersService],

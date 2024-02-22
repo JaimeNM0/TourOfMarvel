@@ -1,17 +1,43 @@
-<div *ngIf="character; else noCharacter">
-    <h2>{{ character[0].name | uppercase }} Details</h2>
-    <p>Id: {{ character[0].id }}</p>
-    <p>Nombre del personaje: {{ character[0].name }}</p>
-    <p *ngIf="character[0].description">Descripción del personaje: {{ character[0].description }}</p>
-    <p>Número de comic donde aparece: {{ character[0].comics.available }} números</p>
-    <p>Número de historias donde aparece: {{ character[0].stories.available }} historias</p>
-    <p>Número de series donde aparece: {{ character[0].series.available }} series</p>
-    <p>Número de eventos donde aparece: {{ character[0].events.available }} eventos</p>
-    <img class="" [src]="imagen" width="500px" height="500px">
+<div *ngIf="character; else noCharacter" class="">
+    <div class="divSubTitle">
+        <span class="textSubTitle">{{ character[0].name | uppercase }} Details</span>
+    </div>
+    <div class="flex flex-col items-center md:flex-row gap-2">
+        <div class="w-[100%] md:w-[50%]">
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <span class="textDetails">Id: {{ character[0].id }}</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span class="textDetails">Nombre del personaje: {{ character[0].name }}</span>
+                </mat-list-item>
+                <mat-list-item *ngIf="character[0].description" role="listitem">
+                    <span class="textDetails">Descripción del personaje: {{ character[0].description }}</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span class="textDetails">Número de comic donde aparece: {{ character[0].comics.available }} números</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span class="textDetails">Número de historias donde aparece: {{ character[0].stories.available }} historias</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span class="textDetails">Número de series donde aparece: {{ character[0].series.available }} series</span>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <span class="textDetails">Número de eventos donde aparece: {{ character[0].events.available }} eventos</span>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <div class="flex justify-center w-[100%] md:w-[50%]">
+            <img class="w-[350px] h-[350px] rounded-2xl border-[3px] border-[#4eb1ad]" [src]="imagen">
+        </div>
+    </div>
 </div>
 <ng-template #noCharacter>
-    <p>No existe ese personaje.</p>
+    <div class="divErrorDetails">
+        <span class="textErrorDetails">No existe ese personaje</span>
+    </div>
 </ng-template>
-<div>
-    <button type="button" (click)="goBack()">Regresar</button>
+<div class="divDetails">
+    <button class="buttonDetails" mat-stroked-button (click)="goBack()">Regresar</button>
 </div>

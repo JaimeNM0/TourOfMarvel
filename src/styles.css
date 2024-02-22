@@ -61,3 +61,25 @@ body {
 .textDashboardRegister {
     @apply text-xl;
 }
+
+
+
+.textDetails {
+    @apply text-base whitespace-normal text-white;
+}
+
+.divErrorDetails {
+    @apply flex justify-center items-center h-[100%];
+}
+
+.textErrorDetails {
+    @apply text-2xl text-white;
+}
+
+.divDetails {
+    @apply flex justify-center mt-4;
+}
+
+.buttonDetails {
+    @apply w-64 h-8;
+}
