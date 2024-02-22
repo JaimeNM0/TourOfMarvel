@@ -1,9 +1,9 @@
-<div *ngIf="character; else noCharacter" class="">
+<div *ngIf="character; else noCharacter" class="md:h-[700px] lg:h-[530px]">
     <div class="divSubTitle">
         <span class="textSubTitle">{{ character[0].name | uppercase }} Details</span>
     </div>
-    <div class="flex flex-col items-center md:flex-row gap-2">
-        <div class="w-[100%] md:w-[50%]">
+    <div id="characterDetails" class="flex flex-col items-center justify-center md:flex-row gap-2 h-[100%]">
+        <div class="w-[100%] md:w-[50%] h-[100%]">
             <mat-list role="list">
                 <mat-list-item role="listitem">
                     <span class="textDetails">Id: {{ character[0].id }}</span>
@@ -28,7 +28,7 @@
                 </mat-list-item>
             </mat-list>
         </div>
-        <div class="flex justify-center w-[100%] md:w-[50%]">
+        <div class="flex justify-center w-[100%] md:w-[50%] h-[100%]">
             <img class="w-[350px] h-[350px] rounded-2xl border-[3px] border-[#4eb1ad]" [src]="imagen">
         </div>
     </div>

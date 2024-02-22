@@ -94,6 +94,10 @@ body {
     @apply bg-white text-xl text-center text-black w-[134px] h-9 rounded-md;
 }
 
+#characterDetails>div {
+    @apply flex flex-col justify-center items-center md:mb-20;
+}
+
 .textDetails {
     @apply text-base whitespace-normal text-white;
 }
