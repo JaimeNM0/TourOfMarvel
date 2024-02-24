@@ -51,7 +51,7 @@ body {
 }
 
 .buttonDashboard {
-    @apply p-4 bg-[#f8474c] rounded-2xl border-[3px] border-[#4eb1ad];
+    @apply p-4 bg-[#f8474c] rounded-2xl border-[3px] border-[#0045d1];
 }
 
 .dashboardRegister {
